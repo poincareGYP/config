@@ -16,11 +16,17 @@ return require('packer').startup(function(use)
   -- My plugins here
   use "ellisonleao/gruvbox.nvim"
   use "nvim-tree/nvim-tree.lua"
-  -- use "nvim-tree/nvim-web-devicons"
+  use "nvim-tree/nvim-web-devicons"
   use {
    'nvim-telescope/telescope.nvim', tag = '0.1.6',
    requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use "nvim-treesitter/nvim-treesitter"
+  use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig"
+    }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
