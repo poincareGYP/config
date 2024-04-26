@@ -1,10 +1,12 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-    ensure_installed = {"jdtls"}
+    ensure_installed = {"jdtls", "pyright", "lua_ls"}
 })
 
-local on_attach = function(_, _) 
+local code_completion_capabilites = require("cmp_nvim_lsp").default_capabilities()
+
+local on_attach = function(_, _)
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
@@ -17,5 +19,19 @@ local on_attach = function(_, _)
 end
 
 require("lspconfig").jdtls.setup {
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = code_completion_capabilites
+
+}
+
+require("lspconfig").lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = code_completion_capabilites
+}
+
+
+require("lspconfig").pyright.setup{
+    on_attach = on_attach,
+    capabilities = code_completion_capabilites
+
 }
