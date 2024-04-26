@@ -1,3 +1,6 @@
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -19,3 +22,5 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
+
+vim.opt.fillchars = {eob = " "}
